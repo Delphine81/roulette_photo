@@ -708,7 +708,10 @@ function renderAdminList() {
     html += '<div class="folder-body" id="fb-' + g.nb + '">';
     gp.forEach(function(p) {
       html += '<div class="photo-item"><img src="' + p.data + '" alt="" loading="lazy">';
-      html += '<div class="photo-item-info"><div class="pname">' + p.name + '</div></div>';
+      var solBadge = p.sol === 'oui'
+        ? '<span style="display:inline-block;margin-top:4px;font-size:0.72rem;padding:2px 8px;border-radius:20px;font-weight:600;background:#fff0e8;color:#ff6b00;">🙇 au sol</span>'
+        : '<span style="display:inline-block;margin-top:4px;font-size:0.72rem;padding:2px 8px;border-radius:20px;font-weight:600;background:#e8f5e9;color:#2e7d32;">🙆 debout</span>';
+      html += '<div class="photo-item-info"><div class="pname">' + p.name + '</div>' + solBadge + '</div>';
       html += '<div class="photo-actions">';
       html += '<button class="btn-edit" onclick="openEditModal(\'' + p.id + '\')">✏️ Modifier</button>';
       html += '<button class="btn-del-item" onclick="openDeleteModal(\'' + p.id + '\')">🗑 Suppr.</button>';
