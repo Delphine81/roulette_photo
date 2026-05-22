@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Roulette Photo</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23007aff' stroke='%23fff' stroke-width='4'/><circle cx='50' cy='50' r='8' fill='%23fff'/><line x1='50' y1='4' x2='50' y2='22' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='50' y1='78' x2='50' y2='96' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='4' y1='50' x2='22' y2='50' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='78' y1='50' x2='96' y2='50' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='16' y1='16' x2='29' y2='29' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='71' y1='71' x2='84' y2='84' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='84' y1='16' x2='71' y2='29' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='29' y1='71' x2='16' y2='84' stroke='%23fff' stroke-width='5' stroke-linecap='round'/><line x1='50' y1='50' x2='72' y2='32' stroke='%23ffcc00' stroke-width='5' stroke-linecap='round'/></svg>">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f5f5f7;
+  min-height: 100vh;
+  color: #1c1c1e;
+}
+
+.page { max-width: 480px; margin: 0 auto; padding: 24px 16px 80px; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+  color: #1c1c1e;
+}
+.subtitle {
+  text-align: center;
+  color: #8e8e93;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.card-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8e8e93;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+/* GRILLE NB PERSONNES — 4 colonnes sur 2 lignes + 1 dernière */
+.nb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.nb-btn {
+  border: 2px solid #e5e5ea;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3a3a3c;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.nb-btn.active {
+  border-color: #007aff;
+  background: #e8f0ff;
+  color: #007aff;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.stat {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.stat .num { font-size: 1.6rem; font-weight: 700; color: #007aff; }
+.stat .lbl { font-size: 0.75rem; color: #8e8e93; margin-top: 2px; }
+
+/* BOUTON TIRAGE */
+.btn-main {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.btn-main:active { opacity: 0.8; }
+.btn-main:disabled { background: #c7c7cc; cursor: not-allowed; }
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  padding: 30px 10px;
+  color: #8e8e93;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* OVERLAY PLEIN ECRAN */
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#overlay.open { display: flex; }
+#overlay img {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+}
+
+/* CROIX EN HAUT À GAUCHE — style Pinterest */
+#btn-close-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+#btn-close-overlay:active { background: rgba(0,0,0,0.8); }
+
+.overlay-info {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+#btn-next-draw {
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  background: #007aff;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#btn-next-draw:active { opacity: 0.8; }
+
+/* ADMIN TRIGGER */
+#admin-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 1px solid #e5e5ea;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 50;
+}
+
+/* ADMIN PANEL */
+#admin-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #f5f5f7;
+  z-index: 200;
+  overflow-y: auto;
+  padding: 24px 16px 60px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+#admin-panel.open { display: block; }
+
+.admin-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.admin-top h2 { font-size: 1.3rem; font-weight: 700; }
+
+/* UPLOAD */
+.upload-zone {
+  border: 2px dashed #c7c7cc;
+  border-radius: 14px;
+  padding: 28px 16px;
+  text-align: center;
+  background: #fafafa;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+.upload-zone p { color: #8e8e93; font-size: 0.9rem; margin-top: 6px; }
+#file-input { display: none; }
+#preview-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+/* SELECT */
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.field-row label { font-size: 0.9rem; color: #3a3a3c; white-space: nowrap; font-weight: 500; }
+.field-row select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #c7c7cc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #1c1c1e;
+  -webkit-appearance: auto;
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #34c759;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-secondary:active { opacity: 0.8; }
+.btn-secondary:disabled { background: #c7c7cc; }
+
+/* DOSSIERS PAR GROUPE */
+.folder {
+  margin-bottom: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.folder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 14px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.folder-header:active { background: #f2f2f7; }
+.folder-header.open { border-bottom-color: #f2f2f7; }
+.folder-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1c1c1e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.folder-count {
+  background: #e8f0ff;
+  color: #007aff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+.folder-chevron {
+  color: #c7c7cc;
+  font-size: 0.85rem;
+  transition: transform 0.2s;
+}
+.folder-header.open .folder-chevron { transform: rotate(90deg); }
+.folder-body {
+  display: none;
+  background: #fafafa;
+  padding: 10px;
+  gap: 8px;
+  flex-direction: column;
+}
+.folder-body.open { display: flex; }
+
+/* PHOTO ITEM */
+.photo-item {
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.photo-item img {
+  width: 56px; height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.photo-item-info { flex: 1; min-width: 0; }
+.photo-item-info .pname {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1c1c1e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn-del {
+  background: #fff0f0;
+  border: 1px solid #ffc7c7;
+  color: #ff3b30;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.btn-del:active { background: #ffe0e0; }
+
+/* TOAST */
+#toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1c1e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  z-index: 500;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; }
+
+.btn-close-plain {
+  background: #f2f2f7;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3a3a3c;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="page" id="main-page">
+  <h1>🎰 Roulette Photo</h1>
+  <p class="subtitle">Tirez une pose à reproduire !</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num" id="stat-total">0</div>
+      <div class="lbl">photos</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="stat-compat">0</div>
+      <div class="lbl">compatibles</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Nombre de personnes</div>
+    <div class="nb-grid" id="nb-grid">
+      <button class="nb-btn" data-n="2">👫 2</button>
+      <button class="nb-btn" data-n="3">👨‍👩‍👧 3</button>
+      <button class="nb-btn" data-n="4">🎉 4</button>
+      <button class="nb-btn" data-n="5">🥳 5</button>
+      <button class="nb-btn" data-n="6">🎊 6</button>
+      <button class="nb-btn" data-n="7">🎈 7</button>
+      <button class="nb-btn" data-n="8">🎠 8</button>
+      <button class="nb-btn" data-n="9+">🎡 9+</button>
+    </div>
+  </div>
+
+  <button class="btn-main" id="btn-spin">🎰 Tirer au sort</button>
+
+  <div class="empty" id="empty-hint" style="display:none">
+    📷 Aucune photo pour l'instant.<br>Ajoutez des photos via le bouton ⚙ en bas à droite.
+  </div>
+</div>
+
+<!-- Overlay plein écran -->
+<div id="overlay">
+  <button id="btn-close-overlay">✕</button>
+  <img id="overlay-img" src="" alt="">
+  <div class="overlay-info" id="overlay-info">👥 2 personnes</div>
+  <button id="btn-next-draw">🎰 Suivant</button>
+</div>
+
+<!-- Admin trigger -->
+<button id="admin-trigger">⚙️</button>
+
+<!-- Admin panel -->
+<div id="admin-panel">
+  <div class="admin-top">
+    <h2>Administration</h2>
+    <button class="btn-close-plain" id="btn-close-admin">Fermer</button>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Ajouter une photo</div>
+    <div class="upload-zone" id="upload-zone">
+      <div style="font-size:2rem">📷</div>
+      <p>Appuyer pour ouvrir la photothèque</p>
+    </div>
+    <input type="file" id="file-input" accept="image/*">
+
+    <!-- Modale sélection nb personnes -->
+    <div id="confirm-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:300; align-items:flex-end; justify-content:center;">
+      <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 36px; width:100%; max-width:480px;">
+        <img id="preview-img" src="" alt="Aperçu" style="width:100%; max-height:220px; object-fit:contain; border-radius:12px; margin-bottom:18px;">
+        <div style="font-size:0.8rem; font-weight:600; color:#8e8e93; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">Nombre de personnes sur la photo</div>
+        <select id="admin-nb" style="width:100%; padding:12px 14px; border:1px solid #c7c7cc; border-radius:10px; font-size:1rem; background:#fff; color:#1c1c1e; margin-bottom:16px; -webkit-appearance:auto;">
+          <option value="2">2 personnes</option>
+          <option value="3">3 personnes</option>
+          <option value="4">4 personnes</option>
+          <option value="5">5 personnes</option>
+          <option value="6">6 personnes</option>
+          <option value="7">7 personnes</option>
+          <option value="8">8 personnes</option>
+          <option value="9+">9 ou plus</option>
+        </select>
+        <button class="btn-secondary" id="btn-confirm-add" style="margin-bottom:10px;">✅ Ajouter cette photo</button>
+        <button id="btn-cancel-add" style="display:block; width:100%; padding:13px; background:#f2f2f7; border:none; border-radius:12px; font-size:1rem; font-weight:600; color:#3a3a3c; cursor:pointer;">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Photos enregistrées</div>
+    <div id="folders-list"></div>
+    <div class="empty" id="admin-empty">Aucune photo enregistrée.</div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+var photos = [];
+var selectedNbs = [];
+var pendingData = null;
+var pendingName = '';
+var lastId = null;
+
+var GROUPS = [
+  { nb: '2',  label: '👫 2 personnes' },
+  { nb: '3',  label: '👨‍👩‍👧 3 personnes' },
+  { nb: '4',  label: '🎉 4 personnes' },
+  { nb: '5',  label: '🥳 5 personnes' },
+  { nb: '6',  label: '🎊 6 personnes' },
+  { nb: '7',  label: '🎈 7 personnes' },
+  { nb: '8',  label: '🎠 8 personnes' },
+  { nb: '9+', label: '🎡 9 personnes ou +' }
+];
+
+function savePhotos() {
+  try { localStorage.setItem('roulette_v4', JSON.stringify(photos)); } catch(e) { toast('Stockage plein'); }
+}
+function loadPhotos() {
+  try { var d = localStorage.getItem('roulette_v4'); photos = d ? JSON.parse(d) : []; } catch(e) { photos = []; }
+}
+
+function toast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(function(){ el.classList.remove('show'); }, 2500);
+}
+
+// NB BUTTONS
+document.getElementById('nb-grid').addEventListener('click', function(e) {
+  var btn = e.target.closest('.nb-btn');
+  if (!btn) return;
+  var n = btn.getAttribute('data-n');
+  var idx = selectedNbs.indexOf(n);
+  if (idx >= 0) {
+    selectedNbs.splice(idx, 1);
+    btn.classList.remove('active');
+  } else {
+    selectedNbs.push(n);
+    btn.classList.add('active');
+  }
+  updateStats();
+});
+
+function getCompatible() {
+  if (selectedNbs.length === 0) return photos.slice();
+  return photos.filter(function(p){ return selectedNbs.indexOf(p.nb) >= 0; });
+}
+
+function updateStats() {
+  document.getElementById('stat-total').textContent = photos.length;
+  document.getElementById('stat-compat').textContent = getCompatible().length;
+  document.getElementById('empty-hint').style.display = photos.length === 0 ? 'block' : 'none';
+}
+
+function doDraw() {
+  var pool = getCompatible();
+  if (pool.length === 0) {
+    toast(photos.length === 0 ? 'Ajoutez des photos d\'abord !' : 'Aucune photo pour cette sélection');
+    return null;
+  }
+  var candidates = pool.filter(function(p){ return p.id !== lastId; });
+  if (candidates.length === 0) candidates = pool;
+  var pick = candidates[Math.floor(Math.random() * candidates.length)];
+  lastId = pick.id;
+  return pick;
+}
+
+function showPhoto(pick) {
+  document.getElementById('overlay-img').src = pick.data;
+  var g = GROUPS.filter(function(g){ return g.nb === pick.nb; })[0];
+  document.getElementById('overlay-info').textContent = '👥 ' + (g ? g.label.replace(/^[^ ]+ /, '') : pick.nb + ' pers.');
+  document.getElementById('overlay').classList.add('open');
+}
+
+// TIRAGE
+document.getElementById('btn-spin').addEventListener('click', function() {
+  var pick = doDraw();
+  if (pick) showPhoto(pick);
+});
+
+// FERMER OVERLAY
+document.getElementById('btn-close-overlay').addEventListener('click', function() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('overlay-img').src = '';
+});
+
+// TIRAGE SUIVANT depuis overlay
+document.getElementById('btn-next-draw').addEventListener('click', function() {
+  var pick = doDraw();
+  if (pick) {
+    document.getElementById('overlay-img').src = pick.data;
+    var g = GROUPS.filter(function(g){ return g.nb === pick.nb; })[0];
+    document.getElementById('overlay-info').textContent = '👥 ' + (g ? g.label.replace(/^[^ ]+ /, '') : pick.nb + ' pers.');
+  }
+});
+
+// ADMIN OPEN/CLOSE
+document.getElementById('admin-trigger').addEventListener('click', function() {
+  document.getElementById('admin-panel').classList.add('open');
+  renderAdminList();
+});
+document.getElementById('btn-close-admin').addEventListener('click', function() {
+  document.getElementById('admin-panel').classList.remove('open');
+});
+
+// UPLOAD — ouvre directement la photothèque
+document.getElementById('upload-zone').addEventListener('click', function() {
+  document.getElementById('file-input').click();
+});
+document.getElementById('file-input').addEventListener('change', function(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    pendingData = ev.target.result;
+    pendingName = file.name;
+    document.getElementById('preview-img').src = pendingData;
+    document.getElementById('admin-nb').value = '2';
+    document.getElementById('confirm-modal').style.display = 'flex';
+  };
+  reader.readAsDataURL(file);
+});
+
+// CONFIRMER AJOUT
+document.getElementById('btn-confirm-add').addEventListener('click', function() {
+  if (!pendingData) return;
+  var nb = document.getElementById('admin-nb').value;
+  photos.push({ id: Date.now() + '', data: pendingData, name: pendingName, nb: nb });
+  savePhotos();
+  pendingData = null;
+  pendingName = '';
+  document.getElementById('file-input').value = '';
+  document.getElementById('confirm-modal').style.display = 'none';
+  renderAdminList();
+  updateStats();
+  toast('Photo ajoutée !');
+});
+
+// ANNULER
+document.getElementById('btn-cancel-add').addEventListener('click', function() {
+  pendingData = null;
+  pendingName = '';
+  document.getElementById('file-input').value = '';
+  document.getElementById('confirm-modal').style.display = 'none';
+});
+
+// SUPPRIMER
+function deletePhoto(id) {
+  photos = photos.filter(function(p){ return p.id !== id; });
+  if (lastId === id) lastId = null;
+  savePhotos();
+  renderAdminList();
+  updateStats();
+  toast('Photo supprimée');
+}
+
+// TOGGLE DOSSIER
+function toggleFolder(nb) {
+  var body = document.getElementById('folder-body-' + nb);
+  var header = document.getElementById('folder-header-' + nb);
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    header.classList.remove('open');
+  } else {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+
+function renderAdminList() {
+  var container = document.getElementById('folders-list');
+  var empty = document.getElementById('admin-empty');
+
+  if (photos.length === 0) {
+    container.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  var html = '';
+  GROUPS.forEach(function(g) {
+    var groupPhotos = photos.filter(function(p){ return p.nb === g.nb; });
+    if (groupPhotos.length === 0) return;
+
+    html += '<div class="folder">';
+    html += '<div class="folder-header" id="folder-header-' + g.nb + '" onclick="toggleFolder(\'' + g.nb + '\')">';
+    html += '<span class="folder-title">' + g.label + '<span class="folder-count">' + groupPhotos.length + '</span></span>';
+    html += '<span class="folder-chevron">▶</span>';
+    html += '</div>';
+    html += '<div class="folder-body" id="folder-body-' + g.nb + '">';
+    groupPhotos.forEach(function(p) {
+      html += '<div class="photo-item">';
+      html += '<img src="' + p.data + '" alt="" loading="lazy">';
+      html += '<div class="photo-item-info"><div class="pname">' + p.name + '</div></div>';
+      html += '<button class="btn-del" onclick="deletePhoto(\'' + p.id + '\')">Supprimer</button>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+
+  container.innerHTML = html;
+}
+
+loadPhotos();
+updateStats();
+renderAdminList();
+</script>
+</body>
+</html>
