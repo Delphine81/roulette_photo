@@ -4,492 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Roulette Photo</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAIg0lEQVR42u3dQZLbOAwFUJyklymtfZBcda7hddZzl57pOOl0bIkiCfwPgAJKy6mEhN58MrJlyntV1UFJtaCqcFQVjqrCUVU42HW73aoJl8Nxs67CURoubUUKREFZGcctahWOpUzc7/dSkhjH9B2S47rv1b/fvh1dF1EiC7OQ7hrFobRSOHxMyFQpcUxDKRwMFqIrQxwTSgoHhIUYFQLHqJLCYSNDrAuKo19J4YjFgokjHRG5OAs+jkREJL4MwRcfRw+Rq+NwZ+GLIzgRiSlDuOWL45TItXDEYXHkgywjJhEpGaFwhPIhQWSId8XB0SayLI6wMgLiiOBDfGVImAqIo0FkHRyRAyM+DscIkZIRH4eXDykZKXC4+JCSgcbx/kOS+pCrbT+3g3rC8f79++51qS2q0GQ8mh5HwxyOUSuGsfG4HsPj+BCmDKaPbbDmcJAT5esICT4YOF4/04pjwgrHrhLb2HhtYzIcPTJAPjZdWeH4JIKWQfAhUBmNWVn52IzKFsfH9UOslpt2D3E+BLrV6JmbOwsIjv9l/MSh35Gcdg+3+RC0DJCPzboscfwtQ+Ojs28gH0KQYetjwxQaxwSRoY4hfAhoq6GfLY2FMY5jGUNEJnoVDke/DKWPDVw2OB4yznCc+pjukq0PYcqYm/lGKUscukdnynw19OGAozF/Lxk2OLpjo+1DuTMLgWNaRn8LNmJpcXzKGMTx5MNkz27lQ1xk9DRioxc/Np58GP5r38SHJ45GOzaPcomNz8v2OZAbDisZbSJpcMBkKD9Y0PswwIH7+OAiOHAfPLFxmMdGHB8zOALL0IeHBJHx8Rn3Qafi4vgqYwrH0XwNv8mg8REFx2m/1sPRnmkyHAQZvj7GcCBlBPHhj2O6d544nmQM4uifXQ4cTBlePuZxYGS4+4iLY7ePIXBYx0Z7VPlwEGTwfXTheJUxgmNuOl7PPMQrNtAN5eGgTMQlPCRybDQ664NDERvK8buEhwSPDaaPGRzEkfPDQ1LEBsfHCY7Z2LAaMz88HHAoXwnB+Wjh8JYBCg8VDvM1xeBNMpgPcxyIcTJXFskVG9C+H+LYlXGGAySYGR5UHFYyQN3fxxFJBiI8JnHEXFNw9+Djj/jnpseB/lcVbWWRjGuKyZ34cHB2BZTBXFkk6ZpydD+sWLRkdOPAPel3xhF/TZm4JZ0sTGID+hkhZ2WR7LGxe2+ULNqx8es/GPnbk4bHUjh279Aoi5MF5TeOJyL8b7wWDq2PURZvb289sfHkw+W78m44bDccTBl/+eig8Fr9sfHncnoLC73tkMVi44+PcRaTMn5eLu9vosNjTRwTLHpwPBadOD7S41hJxqOW8VE4bGR8xdHwsT6O1LvRORmjOOL4gO5JZbENB0dGw8dK246lcIBkHOGI4CMxDvfYeOuoaRlHPpbZdqyDgx8bC4THdXGYyDjF4R4ehQMSG1blGx6FA7LbgPooHIWjcBSOwrGL435WhSMsjtN7B8dhUoXj6CUaaOXAoa14OFK0bQxHySgflRwlI8+yol2h4+GwfZMvKw7Hg9kWxqE8C+z0RDAbHHHOBS4c+uNIn67CUTgKR+EoHP1vSPt+Kls4ouDwDQ9HGYUjdHj4xkbhCB0evjIS41g+PFLHxrVwkH24y/DHkX1lAfk4/OGXtGtKF47U2w6OjyAyoBuOa+Gw8tH6vajCcWUfy8i4Lo7TXwOzZeEiIwqOfCuL4jfBRll8fq8n9ZoygCP3044vX1qe+zXBoWubOMo6Q2wsiOP1Pk38DumQjKO/t3DEwtG4QzgWXj4C4Qjuo/MVGBCL0WFEkzGMI1F4jN4SBAuyD0JsUHGAfEy/OWfOQjkemgwIjoDhYfxO5e+TmkKNymtNGT7jLRQO83uAOC4O4YMTG2wchj4Q3QedNWnrg7amzJwrGwEHqO+4g2oNx0lbU2ZOpHYPD1xiQ0+5NhktMzZ8cGh8QNdy0Jk6VmPWy4DjcAwP9L8CcAcumYzcXIYBjiDhQXh+AD2NSzl+fmxM4iCHh/lvRLngUE6EHxu9OBzDgyaDc47f3HRcYmMeB8cHUwbtkMfRSSFkpMeB+NHBmDja80qAg+yDL4N5PGz/7BxlhMDx6sNFBvns4J45msgg4eD48JLBP1i6PVN3GYFwPHw4ynA5dfxovlYyqDigPnxleB1JP/pz8jQZMzhAzzzcZXjhgPrQyLDBofcRQYYjDpAPZWxM4jD0ATpEIR2O7fiYBC8Zzjja7bgUjp6GpMGh99HTCBcZfB+jbeHIUOHQ+OhvwfI4NM2ByvDBMXoi2MI4TPoTFMeEj+mZL4YD1CVDGQY4hnwo/59YBgciX81loHDs+lDKQBPh4DDZs+92bPcu+OPo8WElA0cEjcP2OdBT3xAyzHC0fZjLQPiA4jB/fPy1eyAZljiONh8gGeZEQDhwHzx99hAkwxjHrg+oDEMltjjEujoPaTOUYY+j04e5DD0RKxwCK7IMEo4nHzgZGiVKHEKptowEONo+ODImlMzhEHrRZKBwHPngy+i30olDAhRHBhDHkY8gRE7P55WQddRS0B0E4sjlIz4Osgw4jkQ+guPgy2DgyOIjMg4XGSQcwbeowXG4sGDjCB4hAXF4BYYPjsg+ouFwl+GAo+HDl0gcHI3+kO+UA46YPoLgiCPDDUc0IrsfeF6ZhT+Otg8mEV8c7SY43h1nHEGIeOEIyyIQjlMfaCJ8HKfzjXBTouDwJcLEkYJFRBxeRDg4ErGIi6PHh60SKI7OuQS8C0FxDBHRK0Hg6B982P6HxjFKZFqJIY6h0QbvfAIcc0qGoChxjA4sS8Mz4Zgj0mNlFMf0GHK1Oh8OvZJGHX2xW1lJO5wYB1TJlU0shSOakmX6uRQORyhL9nBZHGgrV2jaVXD0G6omFI6qwlFVOKoKRxW1/gMpStAkohqJoAAAAABJRU5ErkJggg==">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Roulette Photo">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; min-height: 100vh; color: #1c1c1e; overflow: hidden; }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f5f5f7;
-  min-height: 100vh;
-  color: #1c1c1e;
-}
+.page { max-width: 480px; margin: 0 auto; padding: 12px 14px 8px; height: 100vh; display: flex; flex-direction: column; }
 
-.page { max-width: 480px; margin: 0 auto; padding: 24px 16px 80px; }
-
-h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 4px;
-  color: #1c1c1e;
-}
-.subtitle {
-  text-align: center;
-  color: #8e8e93;
-  font-size: 0.9rem;
-  margin-bottom: 24px;
-}
-
-/* CARD */
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-.card-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #8e8e93;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 14px;
-}
-
-/* GRILLE NB PERSONNES — 4 colonnes sur 2 lignes + 1 dernière */
-.nb-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-.nb-btn {
-  border: 2px solid #e5e5ea;
-  border-radius: 12px;
-  background: #fff;
-  padding: 12px 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #3a3a3c;
-  cursor: pointer;
-  text-align: center;
-  transition: border-color 0.15s, background 0.15s;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.nb-btn.active {
-  border-color: #007aff;
-  background: #e8f0ff;
-  color: #007aff;
-}
+h1 { font-size: 1.3rem; font-weight: 700; text-align: center; margin-bottom: 2px; }
+.subtitle { text-align: center; color: #8e8e93; font-size: 0.78rem; margin-bottom: 8px; }
 
 /* STATS */
-.stats {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.stat {
-  flex: 1;
-  background: #fff;
-  border-radius: 12px;
-  padding: 14px;
-  text-align: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-.stat .num { font-size: 1.6rem; font-weight: 700; color: #007aff; }
-.stat .lbl { font-size: 0.75rem; color: #8e8e93; margin-top: 2px; }
+.stats { display: flex; gap: 8px; margin-bottom: 8px; }
+.stat { flex: 1; background: #fff; border-radius: 10px; padding: 7px 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+.stat .num { font-size: 1.1rem; font-weight: 700; color: #007aff; }
+.stat .lbl { font-size: 0.65rem; color: #8e8e93; }
 
-/* BOUTON TIRAGE */
-.btn-main {
-  display: block;
-  width: 100%;
-  padding: 18px;
-  background: #007aff;
-  color: #fff;
-  border: none;
-  border-radius: 14px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 16px;
-}
-.btn-main:active { opacity: 0.8; }
-.btn-main:disabled { background: #c7c7cc; cursor: not-allowed; }
+/* FILTERS CARD */
+.card { background: #fff; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+.card-label { font-size: 0.68rem; font-weight: 600; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
 
-/* EMPTY */
-.empty {
-  text-align: center;
-  padding: 30px 10px;
-  color: #8e8e93;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
+/* NB GRID — 7 boutons sur 2 lignes */
+.nb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.nb-btn { border: 2px solid #e5e5ea; border-radius: 9px; background: #fff; padding: 7px 4px; font-size: 0.85rem; font-weight: 600; color: #3a3a3c; cursor: pointer; text-align: center; -webkit-user-select: none; user-select: none; }
+.nb-btn.active { border-color: #007aff; background: #e8f0ff; color: #007aff; }
 
-/* OVERLAY PLEIN ECRAN */
-#overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #000;
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-#overlay.open { display: flex; }
-#overlay img {
-  max-width: 100%;
-  max-height: 100vh;
-  object-fit: contain;
-}
+/* SOL FILTER */
+.sol-row { display: flex; gap: 5px; margin-top: 7px; }
+.sol-btn { flex: 1; border: 2px solid #e5e5ea; border-radius: 9px; background: #fff; padding: 7px 4px; font-size: 0.78rem; font-weight: 600; color: #3a3a3c; cursor: pointer; text-align: center; -webkit-user-select: none; user-select: none; }
+.sol-btn.active { border-color: #007aff; background: #e8f0ff; color: #007aff; }
 
-/* CROIX EN HAUT À GAUCHE — style Pinterest */
-#btn-close-overlay {
+/* ROULETTE ZONE */
+.roulette-zone { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.roulette-wrapper { position: relative; display: flex; align-items: center; justify-content: center; }
+canvas#wheel { border-radius: 50%; cursor: pointer; display: block; box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+/* Aiguille fixe en haut */
+.needle {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 40px;
-  height: 40px;
-  background: rgba(0,0,0,0.55);
-  border: none;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-}
-#btn-close-overlay:active { background: rgba(0,0,0,0.8); }
-
-.overlay-info {
-  position: absolute;
-  bottom: 24px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  white-space: nowrap;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 28px solid #1c1c1e;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+  z-index: 10;
 }
-#btn-next-draw {
+.needle::after {
+  content: '';
   position: absolute;
-  bottom: 20px;
-  right: 16px;
-  background: #007aff;
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 10px 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  top: -30px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background: #1c1c1e;
+  border-radius: 50%;
 }
-#btn-next-draw:active { opacity: 0.8; }
+.spin-label {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: #8e8e93;
+  font-weight: 500;
+}
 
 /* ADMIN TRIGGER */
-#admin-trigger {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  background: #fff;
-  border: 1px solid #e5e5ea;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  z-index: 50;
-}
+#admin-trigger { position: fixed; bottom: 16px; right: 16px; width: 42px; height: 42px; background: #fff; border: 1px solid #e5e5ea; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.12); z-index: 50; }
+
+/* RESET QUEUE */
+
+/* OVERLAY PLEIN ÉCRAN */
+#overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 100; align-items: center; justify-content: center; flex-direction: column; }
+#overlay.open { display: flex; }
+#overlay img { max-width: 100%; max-height: 100vh; object-fit: contain; }
+#btn-close-overlay { position: absolute; top: 16px; left: 16px; width: 40px; height: 40px; background: rgba(0,0,0,0.55); border: none; border-radius: 50%; color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.overlay-info { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+#btn-next-draw { position: absolute; bottom: 20px; right: 16px; background: #007aff; border: none; border-radius: 50px; color: #fff; font-size: 0.85rem; font-weight: 700; padding: 10px 16px; cursor: pointer; }
 
 /* ADMIN PANEL */
-#admin-panel {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #f5f5f7;
-  z-index: 200;
-  overflow-y: auto;
-  padding: 24px 16px 60px;
-  max-width: 480px;
-  margin: 0 auto;
-}
+#admin-panel { display: none; position: fixed; inset: 0; background: #f5f5f7; z-index: 200; overflow-y: auto; padding: 24px 16px 60px; max-width: 480px; margin: 0 auto; }
 #admin-panel.open { display: block; }
-
-.admin-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+.admin-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 .admin-top h2 { font-size: 1.3rem; font-weight: 700; }
+.btn-close-admin { background: #1c1c1e; color: #fff; border: none; border-radius: 10px; padding: 9px 18px; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
 
 /* UPLOAD */
-.upload-zone {
-  border: 2px dashed #c7c7cc;
-  border-radius: 14px;
-  padding: 28px 16px;
-  text-align: center;
-  background: #fafafa;
-  cursor: pointer;
-  margin-bottom: 14px;
-}
+.upload-zone { border: 2px dashed #c7c7cc; border-radius: 14px; padding: 24px 16px; text-align: center; background: #fafafa; cursor: pointer; margin-bottom: 0; }
 .upload-zone p { color: #8e8e93; font-size: 0.9rem; margin-top: 6px; }
-#file-input { display: none; }
-#preview-img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  display: none;
-}
 
-/* SELECT */
-.field-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.field-row label { font-size: 0.9rem; color: #3a3a3c; white-space: nowrap; font-weight: 500; }
-.field-row select {
-  flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #c7c7cc;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  background: #fff;
-  color: #1c1c1e;
-  -webkit-appearance: auto;
-}
-
-.btn-secondary {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  background: #34c759;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-.btn-secondary:active { opacity: 0.8; }
-.btn-secondary:disabled { background: #c7c7cc; }
-
-/* DOSSIERS PAR GROUPE */
-.folder {
-  margin-bottom: 12px;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-}
-.folder-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  padding: 14px 16px;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  transition: background 0.15s;
-}
-.folder-header:active { background: #f2f2f7; }
+/* FOLDERS */
+.folder { margin-bottom: 12px; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+.folder-header { display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 14px 16px; cursor: pointer; border-bottom: 1px solid transparent; }
 .folder-header.open { border-bottom-color: #f2f2f7; }
-.folder-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #1c1c1e;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.folder-count {
-  background: #e8f0ff;
-  color: #007aff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 9px;
-  border-radius: 20px;
-}
-.folder-chevron {
-  color: #c7c7cc;
-  font-size: 0.85rem;
-  transition: transform 0.2s;
-}
+.folder-title { font-weight: 700; font-size: 0.95rem; color: #1c1c1e; display: flex; align-items: center; gap: 8px; }
+.folder-count { background: #e8f0ff; color: #007aff; font-size: 0.75rem; font-weight: 700; padding: 2px 9px; border-radius: 20px; }
+.folder-chevron { color: #c7c7cc; font-size: 0.85rem; transition: transform 0.2s; }
 .folder-header.open .folder-chevron { transform: rotate(90deg); }
-.folder-body {
-  display: none;
-  background: #fafafa;
-  padding: 10px;
-  gap: 8px;
-  flex-direction: column;
-}
+.folder-body { display: none; background: #fafafa; padding: 10px; gap: 8px; flex-direction: column; }
 .folder-body.open { display: flex; }
 
 /* PHOTO ITEM */
-.photo-item {
-  background: #fff;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-.photo-item img {
-  width: 56px; height: 56px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
+.photo-item { background: #fff; border-radius: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.photo-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
 .photo-item-info { flex: 1; min-width: 0; }
-.photo-item-info .pname {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #1c1c1e;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.btn-del {
-  background: #fff0f0;
-  border: 1px solid #ffc7c7;
-  color: #ff3b30;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.btn-del:active { background: #ffe0e0; }
+.photo-item-info .pname { font-size: 0.82rem; font-weight: 600; color: #1c1c1e; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.photo-actions { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+.btn-edit { background: #e8f0ff; border: none; border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; font-weight: 600; color: #007aff; cursor: pointer; white-space: nowrap; }
+.btn-del-item { background: #fff0f0; border: 1px solid #ffc7c7; color: #ff3b30; border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+
+/* MODALS */
+.modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; align-items: flex-end; justify-content: center; }
+.modal-backdrop.open { display: flex; }
+.modal-sheet { background: #fff; border-radius: 20px 20px 0 0; padding: 24px 20px 36px; width: 100%; max-width: 480px; }
+.modal-sheet h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; text-align: center; }
+.modal-sheet p { font-size: 0.9rem; color: #3a3a3c; margin-bottom: 20px; text-align: center; line-height: 1.5; }
+.field-label { font-size: 0.8rem; font-weight: 600; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.field-select { width: 100%; padding: 12px 14px; border: 1px solid #c7c7cc; border-radius: 10px; font-size: 1rem; background: #fff; color: #1c1c1e; margin-bottom: 16px; -webkit-appearance: auto; }
+.toggle-row { display: flex; gap: 8px; margin-bottom: 20px; }
+.toggle-btn { flex: 1; border: 2px solid #e5e5ea; border-radius: 12px; background: #fff; padding: 12px 6px; font-size: 0.9rem; font-weight: 600; color: #3a3a3c; cursor: pointer; text-align: center; }
+.toggle-btn.active { border-color: #007aff; background: #e8f0ff; color: #007aff; }
+.btn-sm { display: block; width: 100%; padding: 13px; border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-bottom: 8px; color: #fff; }
+.btn-sm:last-child { margin-bottom: 0; }
+.btn-green { background: #34c759; }
+.btn-red { background: #ff3b30; }
+.btn-plain { background: #f2f2f7; color: #3a3a3c; }
+.preview-img-modal { width: 100%; max-height: 160px; object-fit: contain; border-radius: 12px; margin-bottom: 16px; }
 
 /* TOAST */
-#toast {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1c1c1e;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  z-index: 500;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-  white-space: nowrap;
-}
+#toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1c1c1e; color: #fff; padding: 10px 20px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; z-index: 500; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
 #toast.show { opacity: 1; }
 
-.btn-close-plain {
-  background: #f2f2f7;
-  border: none;
-  border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #3a3a3c;
-  cursor: pointer;
-}
+/* LOADING */
+#loading { display: none; position: fixed; inset: 0; background: rgba(245,245,247,0.9); z-index: 400; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+#loading.open { display: flex; }
+#loading p { font-weight: 600; color: #3a3a3c; font-size: 0.95rem; }
+.spinner { width: 36px; height: 36px; border: 3px solid #e5e5ea; border-top-color: #007aff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty { text-align: center; padding: 20px 10px; color: #8e8e93; font-size: 0.9rem; line-height: 1.6; }
 </style>
 </head>
 <body>
 
-<div class="page" id="main-page">
+<div class="page">
   <h1>🎰 Roulette Photo</h1>
   <p class="subtitle">Tirez une pose à reproduire !</p>
 
+  <!-- Stats -->
   <div class="stats">
-    <div class="stat">
-      <div class="num" id="stat-total">0</div>
-      <div class="lbl">photos</div>
-    </div>
-    <div class="stat">
-      <div class="num" id="stat-compat">0</div>
-      <div class="lbl">compatibles</div>
-    </div>
+    <div class="stat"><div class="num" id="stat-total">0</div><div class="lbl">photos</div></div>
+    <div class="stat"><div class="num" id="stat-compat">0</div><div class="lbl">compatibles</div></div>
   </div>
 
+  <!-- Filtres -->
   <div class="card">
     <div class="card-label">Nombre de personnes</div>
     <div class="nb-grid" id="nb-grid">
-      <button class="nb-btn" data-n="2">👫 2</button>
-      <button class="nb-btn" data-n="3">👨‍👩‍👧 3</button>
-      <button class="nb-btn" data-n="4">🎉 4</button>
-      <button class="nb-btn" data-n="5">🥳 5</button>
-      <button class="nb-btn" data-n="6">🎊 6</button>
-      <button class="nb-btn" data-n="7">🎈 7</button>
-      <button class="nb-btn" data-n="8">🎠 8</button>
-      <button class="nb-btn" data-n="9+">🎡 9+</button>
+      <button class="nb-btn" data-n="2">2</button>
+      <button class="nb-btn" data-n="3">3</button>
+      <button class="nb-btn" data-n="4">4</button>
+      <button class="nb-btn" data-n="5">5</button>
+      <button class="nb-btn" data-n="6">6</button>
+      <button class="nb-btn" data-n="7">7</button>
+      <button class="nb-btn" data-n="8+">8+</button>
+    </div>
+    <div class="sol-row" id="sol-grid">
+      <button class="sol-btn active" data-sol="tous">Toutes les poses</button>
+      <button class="sol-btn" data-sol="non">Pas au sol</button>
+      <button class="sol-btn" data-sol="oui">Au sol seulement</button>
     </div>
   </div>
 
-  <button class="btn-main" id="btn-spin">🎰 Tirer au sort</button>
-
-  <div class="empty" id="empty-hint" style="display:none">
-    📷 Aucune photo pour l'instant.<br>Ajoutez des photos via le bouton ⚙ en bas à droite.
+  <!-- Roulette -->
+  <div class="roulette-zone">
+    <div class="roulette-wrapper" id="roulette-wrapper">
+      <div class="needle"></div>
+      <canvas id="wheel" width="220" height="220"></canvas>
+    </div>
+    <div class="spin-label" id="spin-label">Appuyer pour lancer la roulette</div>
   </div>
 </div>
+
+
+<!-- Admin trigger -->
+<button id="admin-trigger">⚙️</button>
 
 <!-- Overlay plein écran -->
 <div id="overlay">
   <button id="btn-close-overlay">✕</button>
   <img id="overlay-img" src="" alt="">
-  <div class="overlay-info" id="overlay-info">👥 2 personnes</div>
+  <div class="overlay-info" id="overlay-info"></div>
   <button id="btn-next-draw">🎰 Suivant</button>
 </div>
-
-<!-- Admin trigger -->
-<button id="admin-trigger">⚙️</button>
 
 <!-- Admin panel -->
 <div id="admin-panel">
   <div class="admin-top">
     <h2>Administration</h2>
-    <button class="btn-close-plain" id="btn-close-admin">Fermer</button>
+    <button class="btn-close-admin" id="btn-close-admin">Fermer</button>
   </div>
-
   <div class="card">
-    <div class="card-label">Ajouter une photo</div>
+    <div class="card-label">Ajouter des photos</div>
     <div class="upload-zone" id="upload-zone">
       <div style="font-size:2rem">📷</div>
-      <p>Appuyer pour ouvrir la photothèque</p>
-    </div>
-    <!-- file input créé dynamiquement -->
-
-    <!-- Modale sélection nb personnes -->
-    <div id="confirm-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:300; align-items:flex-end; justify-content:center;">
-      <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 36px; width:100%; max-width:480px;">
-        <img id="preview-img" src="" alt="Aperçu" style="width:100%; max-height:220px; object-fit:contain; border-radius:12px; margin-bottom:18px;">
-        <div style="font-size:0.8rem; font-weight:600; color:#8e8e93; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">Nombre de personnes sur la photo</div>
-        <select id="admin-nb" style="width:100%; padding:12px 14px; border:1px solid #c7c7cc; border-radius:10px; font-size:1rem; background:#fff; color:#1c1c1e; margin-bottom:16px; -webkit-appearance:auto;">
-          <option value="2">2 personnes</option>
-          <option value="3">3 personnes</option>
-          <option value="4">4 personnes</option>
-          <option value="5">5 personnes</option>
-          <option value="6">6 personnes</option>
-          <option value="7">7 personnes</option>
-          <option value="8">8 personnes</option>
-          <option value="9+">9 ou plus</option>
-        </select>
-        <button class="btn-secondary" id="btn-confirm-add" style="margin-bottom:10px;">✅ Ajouter cette photo</button>
-        <button id="btn-cancel-add" style="display:block; width:100%; padding:13px; background:#f2f2f7; border:none; border-radius:12px; font-size:1rem; font-weight:600; color:#3a3a3c; cursor:pointer;">Annuler</button>
-      </div>
+      <p>Appuyer pour ouvrir la photothèque<br><small>Sélection multiple possible</small></p>
     </div>
   </div>
-
   <div class="card">
     <div class="card-label">Photos enregistrées</div>
     <div id="folders-list"></div>
@@ -497,110 +219,336 @@ h1 {
   </div>
 </div>
 
+<!-- Modal ajout -->
+<div class="modal-backdrop" id="modal-add">
+  <div class="modal-sheet">
+    <h3 id="modal-add-title">Ajouter les photos</h3>
+    <div id="preview-thumbs" style="display:flex;gap:6px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px;"></div>
+    <div class="field-label">Nombre de personnes sur ces photos</div>
+    <select class="field-select" id="add-nb">
+      <option value="2">2 personnes</option>
+      <option value="3">3 personnes</option>
+      <option value="4">4 personnes</option>
+      <option value="5">5 personnes</option>
+      <option value="6">6 personnes</option>
+      <option value="7">7 personnes</option>
+      <option value="8+">8 personnes ou plus</option>
+    </select>
+    <div class="field-label">Pose au sol ?</div>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="add-sol-non">Non</button>
+      <button class="toggle-btn" id="add-sol-oui">Oui (sol / genoux)</button>
+    </div>
+    <button class="btn-sm btn-green" id="btn-confirm-add">✅ Ajouter ces photos</button>
+    <button class="btn-sm btn-plain" id="btn-cancel-add">Annuler</button>
+  </div>
+</div>
+
+<!-- Modal édition -->
+<div class="modal-backdrop" id="modal-edit">
+  <div class="modal-sheet">
+    <h3>Modifier les critères</h3>
+    <img id="edit-preview" src="" class="preview-img-modal" alt="">
+    <div class="field-label">Nombre de personnes</div>
+    <select class="field-select" id="edit-nb">
+      <option value="2">2 personnes</option>
+      <option value="3">3 personnes</option>
+      <option value="4">4 personnes</option>
+      <option value="5">5 personnes</option>
+      <option value="6">6 personnes</option>
+      <option value="7">7 personnes</option>
+      <option value="8+">8 personnes ou plus</option>
+    </select>
+    <div class="field-label">Pose au sol ?</div>
+    <div class="toggle-row">
+      <button class="toggle-btn" id="edit-sol-non">Non</button>
+      <button class="toggle-btn" id="edit-sol-oui">Oui (sol / genoux)</button>
+    </div>
+    <button class="btn-sm btn-green" id="btn-confirm-edit">✅ Enregistrer</button>
+    <button class="btn-sm btn-plain" id="btn-cancel-edit">Annuler</button>
+  </div>
+</div>
+
+<!-- Modal suppression -->
+<div class="modal-backdrop" id="modal-delete">
+  <div class="modal-sheet">
+    <h3>Supprimer cette photo ?</h3>
+    <p>Cette action est irréversible.</p>
+    <button class="btn-sm btn-red" id="btn-confirm-delete">Oui, supprimer</button>
+    <button class="btn-sm btn-plain" id="btn-cancel-delete">Annuler</button>
+  </div>
+</div>
+
+<!-- Loading -->
+<div id="loading"><div class="spinner"></div><p id="loading-msg">Chargement…</p></div>
 <div id="toast"></div>
 
 <script>
+// ===================== INDEXEDDB =====================
+var DB_NAME = 'roulette_photo_db';
+var db = null;
+
+function openDB(cb) {
+  var req = indexedDB.open(DB_NAME, 1);
+  req.onupgradeneeded = function(e) {
+    var d = e.target.result;
+    if (!d.objectStoreNames.contains('photos')) d.createObjectStore('photos', { keyPath: 'id' });
+    if (!d.objectStoreNames.contains('meta')) d.createObjectStore('meta', { keyPath: 'key' });
+  };
+  req.onsuccess = function(e) { db = e.target.result; cb(); };
+  req.onerror = function() { toast('Erreur base de données'); };
+}
+function dbGetAll(store, cb) {
+  var tx = db.transaction(store, 'readonly');
+  var req = tx.objectStore(store).getAll();
+  req.onsuccess = function() { cb(req.result); };
+}
+function dbPut(store, obj, cb) {
+  var tx = db.transaction(store, 'readwrite');
+  tx.objectStore(store).put(obj);
+  tx.oncomplete = function() { if (cb) cb(); };
+}
+function dbPutMany(store, objs, cb) {
+  var tx = db.transaction(store, 'readwrite');
+  var s = tx.objectStore(store);
+  objs.forEach(function(o) { s.put(o); });
+  tx.oncomplete = function() { if (cb) cb(); };
+}
+function dbDelete(store, id, cb) {
+  var tx = db.transaction(store, 'readwrite');
+  tx.objectStore(store).delete(id);
+  tx.oncomplete = function() { if (cb) cb(); };
+}
+function saveMeta(key, val, cb) { dbPut('meta', { key: key, val: val }, cb); }
+function getMeta(key, cb) {
+  var tx = db.transaction('meta', 'readonly');
+  var req = tx.objectStore('meta').get(key);
+  req.onsuccess = function() { cb(req.result ? req.result.val : null); };
+}
+
+// ===================== STATE =====================
 var photos = [];
 var selectedNbs = [];
-var pendingData = null;
-var pendingName = '';
-var lastId = null;
+var selectedSol = 'tous';
+var queue = [];
+var pendingFiles = [];
+var editingId = null;
+var deletingId = null;
+var isSpinning = false;
 
 var GROUPS = [
-  { nb: '2',  label: '👫 2 personnes' },
-  { nb: '3',  label: '👨‍👩‍👧 3 personnes' },
-  { nb: '4',  label: '🎉 4 personnes' },
-  { nb: '5',  label: '🥳 5 personnes' },
-  { nb: '6',  label: '🎊 6 personnes' },
-  { nb: '7',  label: '🎈 7 personnes' },
-  { nb: '8',  label: '🎠 8 personnes' },
-  { nb: '9+', label: '🎡 9 personnes ou +' }
+  { nb: '2', label: '2 personnes' },
+  { nb: '3', label: '3 personnes' },
+  { nb: '4', label: '4 personnes' },
+  { nb: '5', label: '5 personnes' },
+  { nb: '6', label: '6 personnes' },
+  { nb: '7', label: '7 personnes' },
+  { nb: '8+', label: '8 personnes ou +' }
 ];
 
-function savePhotos() {
-  try { localStorage.setItem('roulette_v4', JSON.stringify(photos)); } catch(e) { toast('Stockage plein'); }
-}
-function loadPhotos() {
-  try { var d = localStorage.getItem('roulette_v4'); photos = d ? JSON.parse(d) : []; } catch(e) { photos = []; }
+// ===================== ROULETTE CANVAS =====================
+var COLORS = ['#FF4E8B','#FF6B35','#FFD93D','#6BCB77','#4D96FF','#C77DFF','#FF9F1C','#2EC4B6','#E71D36','#3D405B'];
+var NUM_SEGMENTS = 10;
+var currentAngle = 0;
+var spinVelocity = 0;
+var animFrame = null;
+
+function drawWheel(angle) {
+  var canvas = document.getElementById('wheel');
+  var ctx = canvas.getContext('2d');
+  var size = canvas.width;
+  var cx = size / 2, cy = size / 2;
+  var r = size / 2 - 4;
+  var segAngle = (2 * Math.PI) / NUM_SEGMENTS;
+
+  ctx.clearRect(0, 0, size, size);
+
+  // Segments
+  for (var i = 0; i < NUM_SEGMENTS; i++) {
+    var start = angle + i * segAngle;
+    var end = start + segAngle;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, start, end);
+    ctx.closePath();
+    ctx.fillStyle = COLORS[i % COLORS.length];
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  // Outer ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+  ctx.strokeStyle = '#1c1c1e';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  // Inner circle (hub)
+  ctx.beginPath();
+  ctx.arc(cx, cy, 18, 0, 2 * Math.PI);
+  ctx.fillStyle = '#1c1c1e';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(cx, cy, 10, 0, 2 * Math.PI);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
 }
 
+drawWheel(0);
+
+function spinTo(targetAngle, cb) {
+  var start = performance.now();
+  var startAngle = currentAngle;
+  // Duration 3-4s with easing
+  var duration = 1500 + Math.random() * 500;
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animate(now) {
+    var elapsed = now - start;
+    var t = Math.min(elapsed / duration, 1);
+    var ease = easeOut(t);
+    currentAngle = startAngle + (targetAngle - startAngle) * ease;
+    drawWheel(currentAngle);
+    if (t < 1) {
+      animFrame = requestAnimationFrame(animate);
+    } else {
+      currentAngle = targetAngle;
+      drawWheel(currentAngle);
+      isSpinning = false;
+      if (cb) cb();
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+document.getElementById('wheel').addEventListener('click', function() {
+  if (isSpinning) return;
+  var compat = getCompatible();
+  if (compat.length === 0) {
+    toast(photos.length === 0 ? 'Ajoutez des photos d\'abord !' : 'Aucune photo pour ces critères');
+    return;
+  }
+  isSpinning = true;
+  document.getElementById('spin-label').textContent = '…';
+  // Spin at least 4 full turns + random
+  var extraTurns = (2 + Math.random() * 2) * 2 * Math.PI;
+  var targetAngle = currentAngle + extraTurns;
+  spinTo(targetAngle, function() {
+    document.getElementById('spin-label').textContent = 'Appuyer pour lancer la roulette';
+    var pick = doDraw();
+    if (pick) showPhotoOverlay(pick);
+  });
+});
+
+// ===================== INIT =====================
+showLoading('Chargement…');
+openDB(function() {
+  dbGetAll('photos', function(rows) {
+    photos = rows;
+    getMeta('queue', function(q) {
+      queue = q || [];
+      hideLoading();
+      updateStats();
+      renderAdminList();
+    });
+  });
+});
+
+// ===================== HELPERS =====================
 function toast(msg) {
   var el = document.getElementById('toast');
   el.textContent = msg;
   el.classList.add('show');
-  setTimeout(function(){ el.classList.remove('show'); }, 2500);
+  setTimeout(function() { el.classList.remove('show'); }, 2500);
 }
+function showLoading(msg) { document.getElementById('loading-msg').textContent = msg || '…'; document.getElementById('loading').classList.add('open'); }
+function hideLoading() { document.getElementById('loading').classList.remove('open'); }
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
-// NB BUTTONS
+// ===================== FILTERS =====================
 document.getElementById('nb-grid').addEventListener('click', function(e) {
   var btn = e.target.closest('.nb-btn');
   if (!btn) return;
   var n = btn.getAttribute('data-n');
   var idx = selectedNbs.indexOf(n);
-  if (idx >= 0) {
-    selectedNbs.splice(idx, 1);
-    btn.classList.remove('active');
-  } else {
-    selectedNbs.push(n);
-    btn.classList.add('active');
-  }
+  if (idx >= 0) { selectedNbs.splice(idx, 1); btn.classList.remove('active'); }
+  else { selectedNbs.push(n); btn.classList.add('active'); }
+  updateStats();
+});
+
+document.getElementById('sol-grid').addEventListener('click', function(e) {
+  var btn = e.target.closest('.sol-btn');
+  if (!btn) return;
+  document.querySelectorAll('.sol-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  selectedSol = btn.getAttribute('data-sol');
   updateStats();
 });
 
 function getCompatible() {
-  if (selectedNbs.length === 0) return photos.slice();
-  return photos.filter(function(p){ return selectedNbs.indexOf(p.nb) >= 0; });
+  return photos.filter(function(p) {
+    var nbOk = selectedNbs.length === 0 || selectedNbs.indexOf(p.nb) >= 0;
+    var solOk = selectedSol === 'tous' || p.sol === selectedSol;
+    return nbOk && solOk;
+  });
 }
 
 function updateStats() {
   document.getElementById('stat-total').textContent = photos.length;
   document.getElementById('stat-compat').textContent = getCompatible().length;
-  document.getElementById('empty-hint').style.display = photos.length === 0 ? 'block' : 'none';
+  document.getElementById('empty-hint') && (document.getElementById('empty-hint').style.display = photos.length === 0 ? 'block' : 'none');
+}
+
+// ===================== DRAW LOGIC =====================
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  return arr;
 }
 
 function doDraw() {
-  var pool = getCompatible();
-  if (pool.length === 0) {
-    toast(photos.length === 0 ? 'Ajoutez des photos d\'abord !' : 'Aucune photo pour cette sélection');
-    return null;
+  var compat = getCompatible();
+  if (!compat.length) return null;
+  var compatIds = compat.map(function(p) { return p.id; });
+  var qFiltered = queue.filter(function(id) { return compatIds.indexOf(id) >= 0; });
+  if (!qFiltered.length) {
+    qFiltered = shuffle(compatIds.slice());
   }
-  var candidates = pool.filter(function(p){ return p.id !== lastId; });
-  if (candidates.length === 0) candidates = pool;
-  var pick = candidates[Math.floor(Math.random() * candidates.length)];
-  lastId = pick.id;
-  return pick;
+  var nextId = qFiltered.shift();
+  var others = queue.filter(function(id) { return compatIds.indexOf(id) < 0; });
+  queue = qFiltered.concat(others);
+  saveMeta('queue', queue);
+  updateStats();
+  return photos.filter(function(p) { return p.id === nextId; })[0] || null;
 }
 
-function showPhoto(pick) {
-  document.getElementById('overlay-img').src = pick.data;
-  var g = GROUPS.filter(function(g){ return g.nb === pick.nb; })[0];
-  document.getElementById('overlay-info').textContent = '👥 ' + (g ? g.label.replace(/^[^ ]+ /, '') : pick.nb + ' pers.');
+function showPhotoOverlay(photo) {
+  if (!photo) return;
+  document.getElementById('overlay-img').src = photo.data;
+  var nbLabel = photo.nb === '8+' ? '8 pers. ou +' : photo.nb + ' personnes';
+  document.getElementById('overlay-info').textContent = '👥 ' + nbLabel;
   document.getElementById('overlay').classList.add('open');
 }
 
-// TIRAGE
-document.getElementById('btn-spin').addEventListener('click', function() {
-  var pick = doDraw();
-  if (pick) showPhoto(pick);
-});
-
-// FERMER OVERLAY
 document.getElementById('btn-close-overlay').addEventListener('click', function() {
   document.getElementById('overlay').classList.remove('open');
   document.getElementById('overlay-img').src = '';
 });
 
-// TIRAGE SUIVANT depuis overlay
 document.getElementById('btn-next-draw').addEventListener('click', function() {
   var pick = doDraw();
-  if (pick) {
-    document.getElementById('overlay-img').src = pick.data;
-    var g = GROUPS.filter(function(g){ return g.nb === pick.nb; })[0];
-    document.getElementById('overlay-info').textContent = '👥 ' + (g ? g.label.replace(/^[^ ]+ /, '') : pick.nb + ' pers.');
-  }
+  if (pick) showPhotoOverlay(pick);
 });
 
-// ADMIN OPEN/CLOSE
+
+
+// ===================== ADMIN =====================
 document.getElementById('admin-trigger').addEventListener('click', function() {
   document.getElementById('admin-panel').classList.add('open');
   renderAdminList();
@@ -609,115 +557,165 @@ document.getElementById('btn-close-admin').addEventListener('click', function() 
   document.getElementById('admin-panel').classList.remove('open');
 });
 
-// UPLOAD — ouvre directement la photothèque (pas l'appareil photo)
-function openGallery() {
-  // On crée un input frais à chaque fois pour éviter les bugs iOS
+// ===================== UPLOAD =====================
+document.getElementById('upload-zone').addEventListener('click', function() {
   var inp = document.createElement('input');
-  inp.type = 'file';
-  inp.accept = 'image/*';
-  // NE PAS mettre capture= : ça force l'appareil photo
-  inp.style.display = 'none';
+  inp.type = 'file'; inp.accept = 'image/*'; inp.multiple = true; inp.style.display = 'none';
   inp.addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    if (!file) return;
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      pendingData = ev.target.result;
-      pendingName = file.name;
-      document.getElementById('preview-img').src = pendingData;
-      document.getElementById('admin-nb').value = '2';
-      document.getElementById('confirm-modal').style.display = 'flex';
-    };
-    reader.readAsDataURL(file);
+    var files = Array.prototype.slice.call(e.target.files);
+    if (!files.length) return;
+    showLoading('Lecture des photos…');
+    pendingFiles = [];
+    var loaded = 0;
+    files.forEach(function(file) {
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        pendingFiles.push({ data: ev.target.result, name: file.name });
+        loaded++;
+        if (loaded === files.length) { hideLoading(); openAddModal(); }
+      };
+      reader.readAsDataURL(file);
+    });
     document.body.removeChild(inp);
   });
   document.body.appendChild(inp);
   inp.click();
-}
-document.getElementById('upload-zone').addEventListener('click', openGallery);
+});
 
-// CONFIRMER AJOUT
+function openAddModal() {
+  var thumbs = document.getElementById('preview-thumbs');
+  thumbs.innerHTML = '';
+  pendingFiles.forEach(function(f) {
+    var img = document.createElement('img');
+    img.src = f.data;
+    img.style.cssText = 'width:60px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0;';
+    thumbs.appendChild(img);
+  });
+  document.getElementById('modal-add-title').textContent = pendingFiles.length === 1 ? 'Ajouter cette photo' : 'Ajouter ces ' + pendingFiles.length + ' photos';
+  document.getElementById('add-nb').value = '2';
+  setAddSol('non');
+  openModal('modal-add');
+}
+
+var addSolVal = 'non';
+function setAddSol(val) {
+  addSolVal = val;
+  document.getElementById('add-sol-non').classList.toggle('active', val === 'non');
+  document.getElementById('add-sol-oui').classList.toggle('active', val === 'oui');
+}
+document.getElementById('add-sol-non').addEventListener('click', function() { setAddSol('non'); });
+document.getElementById('add-sol-oui').addEventListener('click', function() { setAddSol('oui'); });
+
 document.getElementById('btn-confirm-add').addEventListener('click', function() {
-  if (!pendingData) return;
-  var nb = document.getElementById('admin-nb').value;
-  photos.push({ id: Date.now() + '', data: pendingData, name: pendingName, nb: nb });
-  savePhotos();
-  pendingData = null;
-  pendingName = '';
-  document.getElementById('confirm-modal').style.display = 'none';
-  renderAdminList();
-  updateStats();
-  toast('Photo ajoutée !');
+  if (!pendingFiles.length) return;
+  var nb = document.getElementById('add-nb').value;
+  var sol = addSolVal;
+  var newPhotos = pendingFiles.map(function(f) {
+    return { id: Date.now() + '_' + Math.random().toString(36).slice(2), data: f.data, name: f.name, nb: nb, sol: sol };
+  });
+  showLoading('Enregistrement…');
+  dbPutMany('photos', newPhotos, function() {
+    newPhotos.forEach(function(p) { photos.push(p); });
+    pendingFiles = [];
+    closeModal('modal-add');
+    hideLoading();
+    renderAdminList();
+    updateStats();
+    toast(newPhotos.length === 1 ? 'Photo ajoutée !' : newPhotos.length + ' photos ajoutées !');
+  });
 });
 
-// ANNULER
 document.getElementById('btn-cancel-add').addEventListener('click', function() {
-  pendingData = null;
-  pendingName = '';
-  document.getElementById('confirm-modal').style.display = 'none';
+  pendingFiles = [];
+  closeModal('modal-add');
 });
 
-// SUPPRIMER
-function deletePhoto(id) {
-  photos = photos.filter(function(p){ return p.id !== id; });
-  if (lastId === id) lastId = null;
-  savePhotos();
-  renderAdminList();
-  updateStats();
-  toast('Photo supprimée');
+// ===================== EDIT =====================
+var editSolVal = 'non';
+function setEditSol(val) {
+  editSolVal = val;
+  document.getElementById('edit-sol-non').classList.toggle('active', val === 'non');
+  document.getElementById('edit-sol-oui').classList.toggle('active', val === 'oui');
+}
+document.getElementById('edit-sol-non').addEventListener('click', function() { setEditSol('non'); });
+document.getElementById('edit-sol-oui').addEventListener('click', function() { setEditSol('oui'); });
+
+function openEditModal(id) {
+  var photo = photos.filter(function(p) { return p.id === id; })[0];
+  if (!photo) return;
+  editingId = id;
+  document.getElementById('edit-preview').src = photo.data;
+  document.getElementById('edit-nb').value = photo.nb;
+  setEditSol(photo.sol || 'non');
+  openModal('modal-edit');
 }
 
-// TOGGLE DOSSIER
+document.getElementById('btn-confirm-edit').addEventListener('click', function() {
+  var photo = photos.filter(function(p) { return p.id === editingId; })[0];
+  if (!photo) return;
+  photo.nb = document.getElementById('edit-nb').value;
+  photo.sol = editSolVal;
+  dbPut('photos', photo, function() {
+    closeModal('modal-edit');
+    renderAdminList();
+    updateStats();
+    toast('Modifié !');
+  });
+});
+
+document.getElementById('btn-cancel-edit').addEventListener('click', function() { editingId = null; closeModal('modal-edit'); });
+
+// ===================== DELETE =====================
+function openDeleteModal(id) { deletingId = id; openModal('modal-delete'); }
+
+document.getElementById('btn-confirm-delete').addEventListener('click', function() {
+  if (!deletingId) return;
+  var id = deletingId;
+  dbDelete('photos', id, function() {
+    photos = photos.filter(function(p) { return p.id !== id; });
+    queue = queue.filter(function(qid) { return qid !== id; });
+    saveMeta('queue', queue);
+    deletingId = null;
+    closeModal('modal-delete');
+    renderAdminList();
+    updateStats();
+    toast('Photo supprimée');
+  });
+});
+
+document.getElementById('btn-cancel-delete').addEventListener('click', function() { deletingId = null; closeModal('modal-delete'); });
+
+// ===================== RENDER ADMIN =====================
 function toggleFolder(nb) {
-  var body = document.getElementById('folder-body-' + nb);
-  var header = document.getElementById('folder-header-' + nb);
-  if (body.classList.contains('open')) {
-    body.classList.remove('open');
-    header.classList.remove('open');
-  } else {
-    body.classList.add('open');
-    header.classList.add('open');
-  }
+  document.getElementById('fb-' + nb).classList.toggle('open');
+  document.getElementById('fh-' + nb).classList.toggle('open');
 }
 
 function renderAdminList() {
   var container = document.getElementById('folders-list');
   var empty = document.getElementById('admin-empty');
-
-  if (photos.length === 0) {
-    container.innerHTML = '';
-    empty.style.display = 'block';
-    return;
-  }
+  if (!photos.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
-
   var html = '';
   GROUPS.forEach(function(g) {
-    var groupPhotos = photos.filter(function(p){ return p.nb === g.nb; });
-    if (groupPhotos.length === 0) return;
-
-    html += '<div class="folder">';
-    html += '<div class="folder-header" id="folder-header-' + g.nb + '" onclick="toggleFolder(\'' + g.nb + '\')">';
-    html += '<span class="folder-title">' + g.label + '<span class="folder-count">' + groupPhotos.length + '</span></span>';
-    html += '<span class="folder-chevron">▶</span>';
-    html += '</div>';
-    html += '<div class="folder-body" id="folder-body-' + g.nb + '">';
-    groupPhotos.forEach(function(p) {
-      html += '<div class="photo-item">';
-      html += '<img src="' + p.data + '" alt="" loading="lazy">';
+    var gp = photos.filter(function(p) { return p.nb === g.nb; });
+    if (!gp.length) return;
+    html += '<div class="folder"><div class="folder-header" id="fh-' + g.nb + '" onclick="toggleFolder(\'' + g.nb + '\')">';
+    html += '<span class="folder-title">' + g.label + '<span class="folder-count">' + gp.length + '</span></span>';
+    html += '<span class="folder-chevron">▶</span></div>';
+    html += '<div class="folder-body" id="fb-' + g.nb + '">';
+    gp.forEach(function(p) {
+      html += '<div class="photo-item"><img src="' + p.data + '" alt="" loading="lazy">';
       html += '<div class="photo-item-info"><div class="pname">' + p.name + '</div></div>';
-      html += '<button class="btn-del" onclick="deletePhoto(\'' + p.id + '\')">Supprimer</button>';
-      html += '</div>';
+      html += '<div class="photo-actions">';
+      html += '<button class="btn-edit" onclick="openEditModal(\'' + p.id + '\')">✏️ Modifier</button>';
+      html += '<button class="btn-del-item" onclick="openDeleteModal(\'' + p.id + '\')">🗑 Suppr.</button>';
+      html += '</div></div>';
     });
     html += '</div></div>';
   });
-
   container.innerHTML = html;
 }
-
-loadPhotos();
-updateStats();
-renderAdminList();
 </script>
 </body>
 </html>
